@@ -7,6 +7,8 @@ from rxp.validation.json_schema import validate_payload
 
 
 def test_all_examples_validate() -> None:
-    for path in Path("examples/v0.1").glob("*.json"):
-        payload = json.loads(path.read_text())
+    paths = list(Path("examples/v0.1").glob("*.json"))
+    assert paths, "no example payloads found under examples/v0.1/"
+    for path in paths:
+        payload = json.loads(path.read_text(encoding="utf-8"))
         validate_payload(payload)

@@ -13,3 +13,31 @@ privacy:
   private_repo_names:
     - VideoFoundry
     - videofoundry
+
+# ---------------------------------------------------------------------------
+# Audit: per-detector exclusions
+# ---------------------------------------------------------------------------
+audit:
+  exclude_paths:
+    T7:
+      # Contracts, validation, and vocabulary modules are exercised by
+      # the contract-tests suite that imports them under different aliases.
+      - "rxp/contracts/**"
+      - "rxp/validation/**"
+      - "rxp/vocabulary/**"
+  # F3 contract fields — filled by producing executor, read by consumers in
+  # OC/SwitchBoard. Never accessed within rxp/ itself by design (this IS the
+  # contract). Field-name exempt list, not path-based, since F3 reports per
+  # field name across the codebase.
+  f3_exempt:
+    - artifact_directory
+    - error_summary
+    - exit_code
+    - input_payload_path
+    - output_result_path
+    - artifact_index
+    - resource_usage
+    - runtime_kind
+    - stderr_path
+    - stdout_path
+    - timeout_seconds
