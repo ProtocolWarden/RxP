@@ -31,5 +31,5 @@ def validate_payload(payload: dict[str, Any]) -> None:
     schema_version = payload.get("schema_version", "0.1")
 
     schema_file = schema_path_for(contract_kind=contract_kind, schema_version=schema_version)
-    schema = json.loads(schema_file.read_text())
+    schema = json.loads(schema_file.read_text(encoding="utf-8"))
     validate(instance=payload, schema=schema)
