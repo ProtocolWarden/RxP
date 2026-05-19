@@ -32,7 +32,7 @@ def test_http_async_runtime_kind_accepted() -> None:
     assert "http_async" in RUNTIME_KINDS
     invocation = RuntimeInvocation(
         invocation_id="inv-1",
-        runtime_name="archon-workflow",
+        runtime_name="dag-executor",
         runtime_kind="http_async",
         working_directory="/tmp",
         command=["unused"],
@@ -41,7 +41,7 @@ def test_http_async_runtime_kind_accepted() -> None:
 
     result = RuntimeResult(
         invocation_id="inv-1",
-        runtime_name="archon-workflow",
+        runtime_name="dag-executor",
         runtime_kind="http_async",
         status="succeeded",
         started_at="2026-05-07T10:00:00Z",
