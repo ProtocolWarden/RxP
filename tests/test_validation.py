@@ -58,7 +58,7 @@ def test_invalid_runtime_status_fails() -> None:
 
 def test_invalid_runtime_kind_fails() -> None:
     payload = _base_invocation()
-    payload["runtime_kind"] = "archon"
+    payload["runtime_kind"] = "not_a_valid_runtime_kind"
     with pytest.raises(ValidationError):
         validate_payload(payload)
 
