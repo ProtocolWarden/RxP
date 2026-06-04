@@ -16,6 +16,10 @@ privacy:
 # Audit: per-detector exclusions
 # ---------------------------------------------------------------------------
 audit:
+  # This repo's .console/ is reconciled + clean (leak-free, log under budget),
+  # so the opt-in reconciliation detectors R1/R2 enforce here.
+  reconcile_enforce: true
+
   cross_repo:
     platform_manifest_repo: ../PlatformManifest
 

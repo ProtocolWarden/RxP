@@ -72,3 +72,8 @@ README.md, SECURITY.md, CONTRIBUTING.md, rxp/vocabulary/runtime_kind.py updated.
 ## 2026-05-23 — Standardize pre-push hook
 
 - Updated `.hooks/pre-push` to the auto-discovering boundary-artifact variant (auto-locates PrivateManifest/dist artifact; extra custodian-multi fallback path).
+
+## 2026-06-04 — Console reconciliation: enable R1/R2 enforcement
+
+- `.console/` is already reconciled and under budget: no scrub-target leak in tracked `.console`/`docs` (git grep clean, detector-ID forms excluded), `log.md` at 74 lines (< 400 R1 budget), and `cl reconcile check` reports GREEN (prune-ready).
+- Flipped `audit.reconcile_enforce: true` in `.custodian/config.yaml` so the opt-in reconciliation detectors R1/R2 now enforce for this repo. Verified `custodian-audit --only R1,R2` returns 0 findings.
